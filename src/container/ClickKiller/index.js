@@ -3,7 +3,14 @@ import Mnu from 'components/Mnu/Mnu.js'
 import Wrapper from 'components/Layout/Layout';
 
 export default class ClickKiller extends React.Component {
+
+    state = {
+
+    }
+
     render() {
+
+        
         return (
             <div>
                 <Mnu />

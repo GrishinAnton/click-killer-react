@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Registration from 'components/Registration/Registration'
+import ButtonClicker from 'components/ButtonClicker/ButtonClicker'
 
 export default function Wrapper() {
 
@@ -9,6 +10,7 @@ export default function Wrapper() {
             
             <Column>
                 <Registration />
+                <ButtonClicker />
             </Column>
             <Column>
             </Column>
@@ -30,5 +32,7 @@ const Layout = styled.div`
 
 const Column = styled.div`
     width: 48%;
+
+    margin-top: 30px;
     border: 1px solid grey;
 `;

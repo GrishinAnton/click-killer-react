@@ -7,10 +7,10 @@ export default function Registartion() {
         <Wrapper>
             <Form>
                 <Radio>
-                    <input type="radio" name="radio" value="enter" />
-                    <label>Зарегестрироваться</label>
-                    <input type="radio" name="radio" value="reg" />\
-                    <label>Войти</label>
+                    <input type="radio" name="radio" id="enter" value="enter" />
+                    <label htmlFor="enter">Зарегестрироваться</label>
+                    <input type="radio" name="radio" id="reg" value="reg" />
+                    <label htmlFor="reg">Войти</label>
                 </Radio>
                 <Input>
                     <input type="text" name="email" placeholder="Ваша почта" required />
@@ -36,7 +36,7 @@ export default function Registartion() {
 }
 
 const Wrapper = styled.div`
-
+    padding: 30px;
 `;
 
 const Form = styled.form`
