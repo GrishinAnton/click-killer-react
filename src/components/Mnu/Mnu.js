@@ -8,7 +8,7 @@ export default function Mnu() {
         <MnuWrapper>
             <MnuBlock>
                 <Logo>
-                    <img src={img} />
+                    <img src={img} alt="2up" />
                 </Logo>
                 <Clicker>
                     <p>Кликер</p>
