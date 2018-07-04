@@ -66,8 +66,6 @@ const Timer = styled.div`
 `;
 
 const Reset = styled.div`
-
-    button {
-
-    }
+    margin-top: 15px;
+    text-align: center;
 `;

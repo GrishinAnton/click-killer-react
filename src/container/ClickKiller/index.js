@@ -2,6 +2,7 @@ import React from 'react';
 import Mnu from 'components/Mnu/Mnu.js'
 import Wrapper from 'components/Layout/Layout';
 
+
 export default class ClickKiller extends React.Component {
 
     state = {
@@ -12,7 +13,8 @@ export default class ClickKiller extends React.Component {
         setInterval: 50,
         startTimer: false,
         startCount: true,
-        result: ''
+        result: '',
+        changePasswordType: 'password'
     }
 
     componentDidUpdate = (prevProps, prevState) => {
@@ -37,6 +39,8 @@ export default class ClickKiller extends React.Component {
                     time={this.state.time}
                     result={this.state.result}
                     reset={this.onResetClickKiller}
+                    changePassword={this.changePassword}
+                    passwordValue={this.state.changePasswordType}
                 />
             </div>            
         )
@@ -84,6 +88,10 @@ export default class ClickKiller extends React.Component {
         
         this.setState({ ...obj })
         
+    }
+
+    changePassword = (type) => {
+        this.setState({ changePasswordType: type === 'password' ? 'text' : 'password' })
     }
 }
 

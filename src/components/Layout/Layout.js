@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import Registration from 'components/Registration/Registration'
-import ButtonClicker from 'components/ButtonClicker/ButtonClicker'
+import Registration from 'components/Registration/Registration';
+import ButtonClicker from 'components/ButtonClicker/ButtonClicker';
+import LiderBoard from 'components/Liderboard/LiderBoard';
 
-export default function Wrapper({ hideRegistrationBlock, onEnter, onKiller, count, time, result, reset }) {
+export default function Wrapper({ hideRegistrationBlock, onEnter, onKiller, count, time, result, reset, passwordValue, changePassword }) {
 
     return (
         <Layout>            
             <Column>
-                {hideRegistrationBlock === false ? <Registration onEnter={onEnter} /> : <ButtonClicker onKiller={onKiller} count={count} time={time} result={result} reset={reset}/>}
+                {hideRegistrationBlock === false ? <Registration onEnter={onEnter} passwordValue={passwordValue} changePassword={changePassword} /> : <ButtonClicker onKiller={onKiller} count={count} time={time} result={result} reset={reset}/>}
             </Column>
             <Column>
+                <LiderBoard />
             </Column>
         </Layout>
     )
