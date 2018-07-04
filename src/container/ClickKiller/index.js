@@ -9,22 +9,18 @@ export default class ClickKiller extends React.Component {
         count: 0,
         time: 0,
         timer: 20,
-        setInterval: 100
+        setInterval: 50
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        console.log('====================================');
-        console.log(prevProps, 'prevProps');
-        console.log('====================================');
 
-        console.log('====================================');
-        console.log(prevState, 'prevState');
-        console.log('====================================');
+        if (+prevState.time >= +prevState.timer){
+            clearInterval(this.timer);
+        }
     }
     
 
     render() {
-
         
         return (
             <div>
@@ -34,6 +30,7 @@ export default class ClickKiller extends React.Component {
                     onEnter={this.onRegistrationEnter}
                     onKiller={this.onKillerClick}
                     count={this.state.count}
+                    time={this.state.time}
                 />
             </div>            
         )
@@ -47,14 +44,14 @@ export default class ClickKiller extends React.Component {
     onKillerClick = (e) => {
         var count = this.state.count
         count++
-        this.onSetInterval()
+        this.onSetInterval(Date.now())
         this.setState({ count: count })
     }
 
-    onSetInterval = () => {
+    onSetInterval = (date) => {        
         
-        setInterval(() => {
-            
+        this.timer =  setInterval(() => {
+            this.setState({ time: (((new Date - date) / 100) / 10).toFixed(1) })
         }, this.state.setInterval)
     }
 }
