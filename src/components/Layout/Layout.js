@@ -33,5 +33,7 @@ const Column = styled.div`
     width: 48%;
 
     margin-top: 30px;
-    border: 1px solid grey;
+
+    border-radius: 5px;
+    box-shadow: 0 0 16px -5px rgba(0,0,0, .5)
 `;

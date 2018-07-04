@@ -5,25 +5,34 @@ import LiderBoards from 'components/Boards/LiderBoards';
 import PercentBoards from 'components/Boards/PercentBoards';
 import PersonalBoards from 'components/Boards/PersonalBoards';
 
-export default function LiderBoard({ LiderBoardType = 'liderBoard' }){
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+import Slider from "react-slick";
+
+export default function LiderBoard({ LiderBoardType = 'liderBoard' }){
+    var settings = {
+        dots: true,
+        arrows: false,
+        infinite: true,
+        speed: 900,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
     return (
         <Wrapper>
-            <Buttons>
-                <input type="radio" name="liderboard" value="liderBoard" />
-                <input type="radio" name="liderboard" value="personalBoard" />
-                <input type="radio" name="liderboard" value="percentBoard" />
-            </Buttons>
-            {/* будет три вида отображения в зависимости от выбранного радиобаттона
-                Поставить slick слайдер
-                https://github.com/akiran/react-slick
-            */}
             <Body>
-                {
-                    LiderBoardType === 'liderBoard' ? <LiderBoards /> : 
-                    LiderBoardType === 'personalBoard' ? <PersonalBoards /> :
-                    LiderBoardType === 'percentBoard' ? <PercentBoards /> : ''
-                }
+                <Slider {...settings}>
+                    <div>
+                        <LiderBoards />
+                    </div>
+                    <div>
+                        <PersonalBoards />
+                    </div>
+                    <div>
+                        <PercentBoards />
+                    </div>  
+                </Slider>
             </Body>
         </Wrapper>
     )
@@ -38,5 +47,5 @@ const Buttons = styled.div`
 `;
 
 const Body = styled.div`
-
+    padding-top: 25px;
 `;
