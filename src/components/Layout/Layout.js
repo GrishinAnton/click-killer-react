@@ -3,18 +3,15 @@ import styled from 'styled-components';
 import Registration from 'components/Registration/Registration'
 import ButtonClicker from 'components/ButtonClicker/ButtonClicker'
 
-export default function Wrapper() {
+export default function Wrapper({ hideRegistrationBlock, onEnter, onKiller, count }) {
 
     return (
-        <Layout>
-            
+        <Layout>            
             <Column>
-                <Registration />
-                <ButtonClicker />
+                {hideRegistrationBlock === false ? <Registration onEnter={onEnter} /> : <ButtonClicker onKiller={onKiller} count={count}/>}
             </Column>
             <Column>
             </Column>
-
         </Layout>
     )
 }

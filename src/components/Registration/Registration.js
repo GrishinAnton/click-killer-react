@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Registartion() {
+export default function Registartion({ onEnter }) {
 
     return (
         <Wrapper>
@@ -28,7 +28,7 @@ export default function Registartion() {
                     </select>
                 </Select>
                 <Button>
-                    <button>Понеслась!!</button>
+                    <button onClick={onEnter}>Понеслась!!</button>
                 </Button>
             </Form>
         </Wrapper>
