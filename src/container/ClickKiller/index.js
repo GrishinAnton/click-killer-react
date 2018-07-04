@@ -9,19 +9,27 @@ export default class ClickKiller extends React.Component {
         count: 0,
         time: 0,
         timer: 20,
-        setInterval: 50
+        setInterval: 50,
+        startTimer: false,
+        startCount: true,
+        result: ''
     }
 
     componentDidUpdate = (prevProps, prevState) => {
 
-        if (+prevState.time >= +prevState.timer){
+        if (+prevState.time >= +prevState.timer && prevState.startCount === true){
             clearInterval(this.timer);
+            this.setState({ startCount: false })
+            this.resultClickKiller()
+            console.log('====================================');
+            console.log("+++++");
+            console.log('====================================');
         }
     }
     
 
     render() {
-        
+
         return (
             <div>
                 <Mnu />
@@ -31,6 +39,7 @@ export default class ClickKiller extends React.Component {
                     onKiller={this.onKillerClick}
                     count={this.state.count}
                     time={this.state.time}
+                    result={this.state.result}
                 />
             </div>            
         )
@@ -41,11 +50,17 @@ export default class ClickKiller extends React.Component {
         this.setState({ hideRegistrationBlock: true })
     }
 
-    onKillerClick = (e) => {
-        var count = this.state.count
-        count++
-        this.onSetInterval(Date.now())
-        this.setState({ count: count })
+    onKillerClick = () => {
+        if (this.state.startCount) {
+            var count = this.state.count
+            count++
+            this.setState({ count: count })
+        }  
+
+        if (!this.state.startTimer){
+            this.onSetInterval(Date.now())
+            this.setState({ startTimer: true })
+        }
     }
 
     onSetInterval = (date) => {        
@@ -53,5 +68,10 @@ export default class ClickKiller extends React.Component {
         this.timer =  setInterval(() => {
             this.setState({ time: (((new Date - date) / 100) / 10).toFixed(1) })
         }, this.state.setInterval)
+    }
+
+    resultClickKiller = () => {
+        var result = this.state.count / this.state.timer
+        this.setState({ result: result })
     }
 }

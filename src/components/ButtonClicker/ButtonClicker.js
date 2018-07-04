@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function ButtonClicker({ onKiller, count, time }) {
+export default function ButtonClicker({ onKiller, count, time, result }) {
 
     return (
         <Wrapper>
@@ -12,7 +12,7 @@ export default function ButtonClicker({ onKiller, count, time }) {
                 <button onClick={onKiller}>Фигачим тут!</button>
             </ButtonClick>
             <Timer>
-                <p>Время из тикин <b>{time}</b>c эвэй</p>
+                <p>Время {result} из тикин <b>{time}</b>c эвэй</p>
             </Timer>
         </Wrapper>
     )
