@@ -21,15 +21,11 @@ export default class ClickKiller extends React.Component {
             clearInterval(this.timer);
             this.setState({ startCount: false })
             this.resultClickKiller()
-            console.log('====================================');
-            console.log("+++++");
-            console.log('====================================');
         }
     }
     
 
-    render() {
-
+    render() {       
         return (
             <div>
                 <Mnu />
@@ -40,6 +36,7 @@ export default class ClickKiller extends React.Component {
                     count={this.state.count}
                     time={this.state.time}
                     result={this.state.result}
+                    reset={this.onResetClickKiller}
                 />
             </div>            
         )
@@ -74,4 +71,19 @@ export default class ClickKiller extends React.Component {
         var result = this.state.count / this.state.timer
         this.setState({ result: result })
     }
+
+    onResetClickKiller = () => {
+
+        var obj = {
+            count: 0,
+            time: 0,
+            startTimer: false,
+            startCount: true,
+            result: ''
+        }
+        
+        this.setState({ ...obj })
+        
+    }
 }
+
