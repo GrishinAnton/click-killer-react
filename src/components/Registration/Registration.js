@@ -48,6 +48,11 @@ const Radio = styled.div`
     text-align: center;
     margin-bottom: 15px;
 
+    label,
+    input {
+        cursor: pointer;
+    }
+
 `;
 
 const Input = styled.div`
